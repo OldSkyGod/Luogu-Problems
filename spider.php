@@ -18,7 +18,7 @@ for($i = 1; $i <= $page_total; $i++){
         $id = $content_arr['currentData']['problems']['result'][$index]['pid'];
         $name = $content_arr['currentData']['problems']['result'][$index]['title'];
         echo $id." ".$name."\n";
-        fwrite($handler, "- [$id $name](https://www.luogu.com.cn/problem/$id)\n");
+        fwrite($handler, "- [$id $name](problem/$id)\n");
         if(!file_exists($prefix.$id.".md")){
             $pro = get("https://www.luogu.com.cn/problem/$id?_contentOnly=1");
             $pro_arr = json_decode($pro, true);

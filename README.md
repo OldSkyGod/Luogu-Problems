@@ -1,3 +1,5 @@
+爬虫使用方式：使用`php`命令直接运行即可，会自动更新列表和题目，并过滤已获取的题目。
+
 考虑到github大陆可访问性较差，建议通过此镜像仓库观看：
 
 - [LiuTianyou/Luogu-Problems: 洛谷题目镜像 - Luogu-Problems - 星河 Gitea (gitsr.cn)](https://gitsr.cn/LiuTianyou/Luogu-Problems)

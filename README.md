@@ -2,8 +2,6 @@
 
 - [LiuTianyou/Luogu-Problems: 洛谷题目镜像 - Luogu-Problems - 星河 Gitea (gitsr.cn)](https://gitsr.cn/LiuTianyou/Luogu-Problems)
 
-- 
-
 > 下文摘自[《洛谷用户协议》](https://www.luogu.com.cn/blog/luogu/luogu-EULA)，请以实际为准。
 
 4 内容与知识产权

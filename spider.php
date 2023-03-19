@@ -29,13 +29,15 @@ for($i = 1; $i <= $page_total; $i++){
             $output_format = $pro_arr['currentData']['problem']['outputFormat'];
             $samples = $pro_arr['currentData']['problem']['samples'];
             $md = fopen($prefix.$id.".md", "w");
-            fwrite($md, "# $name\n\n## 题目背景\n\n$background\n\n## 题目描述\n\n$description\n\n## 输入格式\n\n$input_format\n\n## 输出格式\n\n$output_format\n\n");
+            fwrite($md, "# $name\n\n");
+            if(isset($backgroune)) fwrite($md, "## 题目背景\n\n$background\n\n");
+            fwrite($md, "## 题目描述\n\n$description\n\n## 输入格式\n\n$input_format\n\n## 输出格式\n\n$output_format\n\n");
             for($j = 0; $j < count($samples); $j++){
                 $id = $j + 1;
-                $input = $samples[$j][0];
-                $output = $samples[$j][1];
+                $input = trim($samples[$j][0]);
+                $output = trim($samples[$j][1]);
                 fwrite($md, "## 样例 #$id\n\n");
-                fwrite($md, "### 样例输入 #$id\n```\n$input```\n\n### 样例输出 #$id\n\n```\n$output```\n\n");
+                fwrite($md, "### 样例输入 #$id\n```\n$input\n```\n\n### 样例输出 #$id\n\n```\n$output\n```\n\n");
             }
             fwrite($md, "## 提示\n\n$hint\n");
             fclose($md);

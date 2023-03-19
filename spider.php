@@ -2,7 +2,8 @@
 function get($url){
     sleep(1);
     echo $url."\n";
-    return file_get_contents($url);
+    while(($res = file_get_contents($url)) == False);
+    return $res;
 }
 $prefix = "problem/";
 $handler = fopen("problems_list.md", "w");

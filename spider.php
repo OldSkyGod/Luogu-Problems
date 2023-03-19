@@ -1,8 +1,9 @@
 <?php
+error_reporting(E_ALL&~E_WARNING);
 function get($url){
     sleep(1);
     echo $url."\n";
-    while(($res = file_get_contents($url)) == False);
+    while(($res = file_get_contents($url)) == False) sleep(1);
     return $res;
 }
 $prefix = "problem/";
@@ -29,14 +30,12 @@ for($i = 1; $i <= $page_total; $i++){
             $samples = $pro_arr['currentData']['problem']['samples'];
             $md = fopen($prefix.$id.".md", "w");
             fwrite($md, "# $name\n\n## 题目背景\n\n$background\n\n## 题目描述\n\n$description\n\n## 输入格式\n\n$input_format\n\n## 输出格式\n\n$output_format\n\n");
-            foreach($samples as $i => $v){
-                $sample = $samples[$i];
-                fwrite($md, "## 样例 #$i\n\n");
-                foreach($sample as $ii => $vv){
-                    $input = $sample[$ii][0];
-                    $output = $sample[$ii][1];
-                    fwrite($md, "### 样例输入 #$i\n```\n$input\n```\n\n### 样例输出 #$i\n\n```\n$output\n```\n\n");
-                }
+            for($j = 0; $j < count($samples); $j++){
+                $id = $j + 1;
+                $input = $samples[$j][0];
+                $output = $samples[$j][1];
+                fwrite($md, "## 样例 #$id\n\n");
+                fwrite($md, "### 样例输入 #$id\n```\n$input```\n\n### 样例输出 #$id\n\n```\n$output```\n\n");
             }
             fwrite($md, "## 提示\n\n$hint\n");
             fclose($md);
